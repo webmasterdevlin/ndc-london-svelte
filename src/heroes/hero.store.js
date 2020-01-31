@@ -15,7 +15,19 @@ function createHeroStore() {
     return {
         subscribe,
         loadHeroes: async () => {
-            update(state => (state = {...state, isLoading: true}))
-        }
+            update(state => (state = {...state, isLoading: true}));
+            try {
+                const res = (await get(path)).data;
+                const sortedHeroes = res.sort((hOne, hTwo) => 
+                hOne.firstName.toLowerCase() < hTwo.firstName.toLowerCase()
+                ? -1 : 1 );
+                update(state => (state = {...state, heroes: sortedHeroes}))
+            } catch (e) {
+                alert(e.message);
+            }
+            update(state => (state = {...state, isLoading:false}))
+        },
     }
 }
+
+export const heroStore = createHeroStore();
