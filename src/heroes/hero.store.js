@@ -48,6 +48,7 @@ function createHeroStore() {
             } catch (e) {
                 alert(e.message)
             }
+            update(state => (state = {...state, isLoading:false}))
         }
     }
 }

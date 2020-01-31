@@ -22,7 +22,7 @@
     }
 
     const onSave = async () => {
-        
+        await heroStore.createHero(heroForm);
     }
 
 </script>
