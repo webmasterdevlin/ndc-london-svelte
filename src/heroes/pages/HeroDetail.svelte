@@ -1,0 +1,1 @@
+<h2>HeroDetail Works!</h2>
