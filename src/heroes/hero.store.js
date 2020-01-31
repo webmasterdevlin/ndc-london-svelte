@@ -1,5 +1,5 @@
 import {writable, derived} from 'svelte/store';
-import {get, deleteById} from '../shared/api.call';
+import {get, deleteById, post} from '../shared/api.call';
 
 const initialState = {
     heroes: [],
@@ -39,6 +39,15 @@ function createHeroStore() {
                 alert(e.message);
             }
             update(state => (state = {...state, isLoading: false}));
+        },
+        createHero: async newHero => {
+            update(state => (state = {...state, isLoading: true}));
+            try {
+                const res = (await post(path, newHero)).data;
+                update(state => (state = {...state, heroes: [...state.heroes, res]}))
+            } catch (e) {
+                alert(e.message)
+            }
         }
     }
 }
