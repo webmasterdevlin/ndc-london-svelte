@@ -17,6 +17,7 @@
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.2.0",
     "svelte": "^3.18.1",
+    "svelte-mui": "^0.3.1",
     "svelte-routing": "^1.4.0"
   },
   "dependencies": {

@@ -8,3 +8,7 @@ const api = axios.create({
 export async function get(path) {
     return await api.get(path);
 }
+
+export async function deleteById(path, id) {
+  return await api.delete(`${path}/${id}`)
+}

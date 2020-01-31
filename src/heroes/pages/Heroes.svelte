@@ -1,6 +1,8 @@
 <script>
     import { heroStore } from '../hero.store.js'
     import {get} from '../../shared/api.call.js';
+    import {Button} from 'svelte-mui';
+
     import {onMount} from 'svelte';
     let heroes = [];
 
@@ -18,6 +20,7 @@
         {#each $heroStore.heroes as hero}
             <li key={hero.id}>
                 {hero.firstName} {hero.lastName}
+                <Button on:click={() => alert(hero.id)} outlined color="crimson">DELETE</Button>
             </li>
         {/each}
     {/if}
