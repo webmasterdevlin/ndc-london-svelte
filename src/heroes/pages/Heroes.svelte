@@ -10,6 +10,10 @@
        await heroStore.loadHeroes();
     })
 
+    const handleClickDelete = async (id) => {
+        await heroStore.removeHero(id);
+    }
+
 </script>
 <h2>Heroes Works!</h2>
 
@@ -20,7 +24,7 @@
         {#each $heroStore.heroes as hero}
             <li key={hero.id}>
                 {hero.firstName} {hero.lastName}
-                <Button on:click={() => alert(hero.id)} outlined color="crimson">DELETE</Button>
+                <Button on:click={() => handleClickDelete(hero.id)} outlined color="crimson">DELETE</Button>
             </li>
         {/each}
     {/if}

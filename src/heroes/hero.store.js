@@ -1,5 +1,5 @@
 import {writable, derived} from 'svelte/store';
-import {get} from '../shared/api.call';
+import {get, deleteById} from '../shared/api.call';
 
 const initialState = {
     heroes: [],
@@ -27,6 +27,19 @@ function createHeroStore() {
             }
             update(state => (state = {...state, isLoading:false}))
         },
+        removeHero: async id => {
+            update(state => (state = {...state, isLoading: true}));
+            try {
+                await deleteById(path, id);
+                update(state => {
+                    const updatedHeroes = state.heroes.filter(h => h.id !== id);
+                    return (state = { ...state, heroes: updatedHeroes });
+                })
+            } catch (e) {
+                alert(e.message);
+            }
+            update(state => (state = {...state, isLoading: false}));
+        }
     }
 }
 
