@@ -14,6 +14,10 @@
         await heroStore.removeHero(id);
     }
 
+    const onSave = async () => {
+        // TODO:
+    }
+
 </script>
 <h2>Heroes Works!</h2>
 
