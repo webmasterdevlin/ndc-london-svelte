@@ -16,7 +16,7 @@
     "rollup-plugin-livereload": "^1.0.4",
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.2.0",
-    "svelte": "^3.18.1",
+    "svelte": "^3.49.0",
     "svelte-mui": "^0.3.1",
     "svelte-routing": "^1.4.0"
   },
